@@ -1,4 +1,4 @@
-# Cycloidal Drive — ARCUS-1
+# Cycloidal Drive V1
 
 Cycloidal reducer designed for the 6DoF robotic arm.
 
