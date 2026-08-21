@@ -50,7 +50,7 @@ Cycloidal reducer designed for the 6DoF robotic arm.
 
 ## Notes
 Altough the current version still has some problems:
-Excessive weight
-Slight contact between the two disks
-Power losses caused by friction at the 3D-printed pins
+Excessive weight,
+Slight contact between the two disks,
+Power losses caused by friction at the 3D-printed pins.
 I’m still satysfied with the result and will soon release a second version with with a lighter design and add some oil to the pins to reduce friction
