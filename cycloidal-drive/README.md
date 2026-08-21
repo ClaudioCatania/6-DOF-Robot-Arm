@@ -27,7 +27,8 @@ Cycloidal reducer designed for the 6DoF robotic arm.
 |---|---|
 | 8 | M3 screws, 35mm |
 | 8 | M3 nuts |
-
+| 6 | M3 screws, 25mm |
+| 12 | M3 threaded inserts |
 ## Print settings (Bambu Lab A1)
 
 - **Infill:** 20%, gyroid pattern — good compromise between stiffness/weight and multi-directional load resistance
