@@ -76,6 +76,8 @@ The spacers have to touch only the inner race of the bearing, so their outside d
 stay at 5 mm or less. Standard M3 washers are 7 mm across and would press on the outer race
 and lock the bearing.
 
+I also changed the number of the theets of the ring gear from 21 to 24 so the reduction ratio in 1:23 and the ring gear can be sealed to the bearing housing with an even number of bolts
+
 Still to do on V2: fillets of 1 to 2 mm on the inside corners of the lightening windows, and
 screws with a plain unthreaded shank in the bearing area rather than thread all the way.
 
