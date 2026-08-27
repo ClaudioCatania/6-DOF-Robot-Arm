@@ -1,68 +1,86 @@
-# 6-DOF-Robot-Arm
-A six axis robot arm built around 3D printed cycloidal reducers on NEMA 17 steppers.
-Designed in Fusion 360, printed on a Bambu Lab A1.
+# Cycloidal drive
 
-I study mechanical engineering at Sapienza and this is my own project, outside of coursework.
-What I want out of it is a modular arm, meaning every joint is the same kind of assembly:
-one stepper, one cycloidal stage, one output flange. Scaling a joint should then be a matter
-of changing dimensions, not of redesigning it.
+The reducer used at every joint of the arm. V1 is built and running, V2 is in CAD.
 
-Prototypes that got dropped are kept here together with the reason they were dropped. So far
-I have learned more from those than from the ones that worked.
+## V1 specifications
 
-## Status
-
-| | State |
+| Parameter | Value |
 |---|---|
-| Cycloidal drive V1 | Printed, assembled, tested. It turns, but it is heavier than it needs to be and the printed ring pins rub. |
-| Cycloidal drive V2 | In CAD. The ring pins become M3 screws with a bearing on top, which should turn the sliding contact into a rolling one. |
-| J1, base joint | Prototype 1 built with a belt stage, then dropped. See [design log 0001](docs/design-log/0001-j1-belt-driven-base.md). |
-| J2 to J6 | Not started. |
+| Eccentricity | 1.37 mm |
+| Reduction ratio | 1:20 |
+| Ring gear pins | 21, 3D printed, integrated into the housing |
+| Cycloidal disc thickness | 7 mm |
+| Output pin holes | Ø8 mm |
 
-## How a joint is built
+## Bearings
 
-The same recipe everywhere:
+| Quantity | Size | Function |
+|---|---|---|
+| 2 | 20x32x7 | Shaft to disc |
+| 1 | 20x32x7 | Output to rear of the drive |
+| 12 | 3x8x4 | Output pins |
+| 1 | 60x78x10 | Output to ring gear |
 
-- NEMA 17 stepper, 42 x 42 x 40 mm
-- single stage cycloidal reducer, with the ring gear cut directly into the joint housing so
-  it is not a separate part
-- deep groove ball bearing on the output, 6812 (60 x 78 x 10) on the large joints
-- Ø8 shafting and a Ø60 output flange as the interface between one joint and the next
-- PLA on a Bambu Lab A1, 20% gyroid infill, speed reduced from the standard profile for
-  dimensional accuracy
+## Fasteners
 
-The parts that take real load are off the shelf: bearings, M3 screws, threaded inserts. The
-printed parts mostly hold those in the right place.
+| Quantity | Item |
+|---|---|
+| 8 | M3 screws, 35 mm |
+| 8 | M3 nuts |
+| 6 | M3 screws, 25 mm |
+| 12 | M3 threaded inserts |
 
-## Why cycloidal
+## Print settings, Bambu Lab A1
 
-I looked at planetary reducers, harmonic drives and off the shelf smart servos first.
-Harmonic drives are out of budget. Smart servos would work, but they hide the part of the
-problem I actually wanted to work on. A cycloidal stage gives 20:1 or more in a single stage,
-takes shock loads better than a printed planetary, and I can print it.
+- Infill: 20% gyroid. Good compromise between stiffness, weight and taking load from more
+  than one direction.
+- Speed: reduced from the standard profile, for dimensional accuracy.
+- Material: PLA.
 
-The price is that it is sensitive to print accuracy. Getting V1 to turn smoothly took several
-calibration prints for hole and contour compensation before any real part came out usable.
+Hole and contour compensation on the XY plane were calibrated with test prints before any
+real part was printed. Without that step the bearing seats came out too tight to use.
 
-## Repository layout
+## Design problems I ran into
 
-```
-docs/design-log/     one entry per design decision, rejected ones included
-cycloidal-drive/     the reducer module, shared by every joint
-J1/                  base joint, yaw
-```
+- **Sizing the main bearing.** The 60x78x10 had to have a bore larger than the circle the
+  output pins sit on, otherwise it would run into them.
+- **The smaller bearings.** The 20x32x7 and the 3x8x4 were picked after several iterations,
+  to fit the disc dimensions I had settled on.
+- **Interference fits.** Getting these to hold without splitting the part took several
+  prototypes.
 
-Each module folder has its own README and a `cad/` folder with STEP files. Anything under
-`cad/rejected/` was built or fully modelled and then abandoned.
+## V1 status
 
-## Design log
+- [x] Geometry defined, eccentricity and ratio
+- [x] Bearings sized
+- [x] Print settings calibrated
+- [x] Hole and contour compensation calibrated on test prints
+- [x] Parts printed
+- [x] Assembled and tested
 
-| # | Entry | Joint | Status |
-|---|---|---|---|
-| [0001](docs/design-log/0001-j1-belt-driven-base.md) | Belt driven J1 base, prototype 1 | J1 | Rejected |
+It turns and it works. Three things are wrong with it:
 
-## Licence
+1. It is heavier than it needs to be.
+2. The two discs touch each other slightly.
+3. The ring gear pins are printed and rub. This is the real problem: the disc slides against
+   the pin instead of rolling on it, and no amount of lubricant fixes a sliding contact.
 
-CERN-OHL-S v2, see [LICENSE](LICENSE). It is a hardware licence and it is strongly
-reciprocal: you can use and modify these designs, but modified versions have to be released
-under the same terms.
+## V2, in CAD
+
+The main change is the ring pins. Instead of printed posts, each pin becomes an M3 screw
+passing right through the housing, with a heat set insert, a 3x8x4 bearing and a printed
+spacer on it. The bearing outer race becomes the pin, so the contact turns from sliding to
+rolling, and the screw is supported at both ends instead of cantilevered.
+
+The spacers have to touch only the inner race of the bearing, so their outside diameter has to
+stay at 5 mm or less. Standard M3 washers are 7 mm across and would press on the outer race
+and lock the bearing.
+
+Still to do on V2: fillets of 1 to 2 mm on the inside corners of the lightening windows, and
+screws with a plain unthreaded shank in the bearing area rather than thread all the way.
+
+## Files
+
+| Path | What it is |
+|---|---|
+| `cad/CycloidalDriveV1Assembly.f3z` | V1 assembly, Fusion 360 archive |

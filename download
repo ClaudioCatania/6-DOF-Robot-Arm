@@ -1,0 +1,19 @@
+# Fusion 360
+*.f3d.bak
+*.autosave
+AutodeskBackup/
+
+# Slicer output. STL and 3MF are exported from the STEP files, no need to track them
+*.gcode
+*.gcode.3mf
+*.bgcode
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*~

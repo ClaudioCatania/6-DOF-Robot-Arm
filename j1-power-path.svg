@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" width="980" height="420" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="980" height="420" fill="#ffffff"/>
+
+  <!-- ROW 1 : rejected -->
+  <text x="30" y="42" font-size="19" font-weight="bold" fill="#8b1a1a">Prototype 1 — rejected</text>
+  <text x="30" y="66" font-size="15" fill="#555">NEMA 17 offset by 81.93 mm, belt stage upstream of the reducer</text>
+
+  <g stroke="#2b2b2b" fill="none" stroke-width="1.6">
+    <rect x="30" y="92" width="130" height="62" rx="6"/>
+    <rect x="250" y="92" width="150" height="62" rx="6"/>
+    <rect x="490" y="92" width="170" height="62" rx="6"/>
+    <rect x="750" y="92" width="150" height="62" rx="6"/>
+  </g>
+  <g font-size="15" fill="#1b1b1b" text-anchor="middle">
+    <text x="95" y="118">NEMA 17</text><text x="95" y="139" font-size="13" fill="#666">42 × 40 mm</text>
+    <text x="325" y="118">GT2 belt 20T → 80T</text><text x="325" y="139" font-size="13" fill="#666">4 : 1</text>
+    <text x="575" y="118">Cycloidal stage</text><text x="575" y="139" font-size="13" fill="#666">21 pins / 20 lobes — 20 : 1</text>
+    <text x="825" y="118">J1 output</text><text x="825" y="139" font-size="13" fill="#666">Ø60 flange · 6812</text>
+  </g>
+  <g stroke="#2b2b2b" stroke-width="1.6" marker-end="url(#ar)">
+    <line x1="160" y1="123" x2="245" y2="123"/>
+    <line x1="400" y1="123" x2="485" y2="123"/>
+    <line x1="660" y1="123" x2="745" y2="123"/>
+  </g>
+  <text x="465" y="186" font-size="15" fill="#8b1a1a" text-anchor="middle">overall 80 : 1 &#160;·&#160; envelope 162 × 115 × 67 mm &#160;·&#160; 45 °/s max at J1</text>
+
+  <line x1="30" y1="214" x2="950" y2="214" stroke="#d0d0d0" stroke-width="1"/>
+
+  <!-- ROW 2 : proposed -->
+  <text x="30" y="256" font-size="19" font-weight="bold" fill="#14532d">Direction taken instead</text>
+  <text x="30" y="280" font-size="15" fill="#555">Motor coaxial with J1, single cycloidal stage re-cut to 23 : 1</text>
+
+  <g stroke="#2b2b2b" fill="none" stroke-width="1.6">
+    <rect x="30" y="306" width="130" height="62" rx="6"/>
+    <rect x="330" y="306" width="230" height="62" rx="6"/>
+    <rect x="700" y="306" width="150" height="62" rx="6"/>
+  </g>
+  <g font-size="15" fill="#1b1b1b" text-anchor="middle">
+    <text x="95" y="332">NEMA 17</text><text x="95" y="353" font-size="13" fill="#666">direct eccentric</text>
+    <text x="445" y="332">Cycloidal stage</text><text x="445" y="353" font-size="13" fill="#666">24 pins / 23 lobes — 23 : 1</text>
+    <text x="775" y="332">J1 output</text><text x="775" y="353" font-size="13" fill="#666">same Ø60 flange</text>
+  </g>
+  <g stroke="#2b2b2b" stroke-width="1.6" marker-end="url(#ar)">
+    <line x1="160" y1="337" x2="325" y2="337"/>
+    <line x1="560" y1="337" x2="695" y2="337"/>
+  </g>
+  <text x="465" y="400" font-size="15" fill="#14532d" text-anchor="middle">overall 23 : 1 &#160;·&#160; envelope Ø115 × ~88 mm &#160;·&#160; 157 °/s at J1 &#160;·&#160; no belt, no offset shaft load</text>
+
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+</svg>
